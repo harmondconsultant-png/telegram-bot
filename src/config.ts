@@ -1067,6 +1067,7 @@ export const CONFIG_KEYS: readonly ConfigKeySpec[] = [
   { key: "TELEGRAM_CHAT_ID", secret: true },
   { key: "TELEGRAM_MARKET_CHAT_ID", secret: true, derivedFrom: { key: "TELEGRAM_CHAT_ID" } },
   { key: "TELEGRAM_SQUAD_CHAT_ID", secret: true, derivedFrom: { key: "TELEGRAM_CHAT_ID" } },
+  { key: "TELEGRAM_TOPIC_MAP", secret: false },
   { key: "ALLOWED_CHAT_IDS", secret: true },
   { key: "OPERATOR_TELEGRAM_USER_ID", secret: true },
   { key: "POLL_INTERVAL_MS", secret: false, hasBuiltInDefault: true },

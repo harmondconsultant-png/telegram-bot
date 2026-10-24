@@ -42,3 +42,16 @@ export function resolveTopicThreadId(
   if (!map || typeof category !== "string") return undefined;
   return map.get(category.trim().toLowerCase());
 }
+
+/**
+ * Topic category for an event: resolutions (`claim_resolved`, `market_settled`,
+ * `resolved`), claims (other `claim_*` events), else the contract source.
+ */
+export function topicCategoryForEvent(source: string, eventName: unknown): string {
+  const name = typeof eventName === "string" ? eventName : "";
+  if (name === "claim_resolved" || name === "market_settled" || name === "resolved") {
+    return "resolutions";
+  }
+  if (name.startsWith("claim_")) return "claims";
+  return source;
+}
